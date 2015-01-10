@@ -28,7 +28,10 @@ exports.register = function(req,res,next){
 	res.render("user/register",{
 		config:config,
 		title : "注册",
-		error : ""
+		tip : {
+			error : "",
+			info : ""
+		}
 	});
 }
 
