@@ -13,5 +13,7 @@ router.get("/",home.index);//首页
 router.get("/Register",home.register);//注册页面
 router.get("/RegisterSuccess",user.success);//注册成功页面
 router.post("/Register",user.register);//注册逻辑
+router.post("/Login",user.login);//注册页面
+router.get("/Logout",user.logout);//注销
 router.get("*",home.err404);//404
 module.exports = router;

@@ -19,3 +19,13 @@ exports.addUser = function(username,password,cb){
 
 
 }
+
+exports.loginByNamePwd = function(username,password,cb){
+	User.findOne({username:username,password:password},function(err,_user){
+		if(err){
+			cb(err,_user);
+		}
+		cb(null,_user);
+	});
+
+}

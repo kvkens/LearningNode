@@ -4,6 +4,7 @@
 
 
 var config = require("../config");//整站配置
+var home = require("../proxy/home");
 /**
  * 首页
  * @param  {[type]} req   [description]
@@ -14,7 +15,9 @@ var config = require("../config");//整站配置
 exports.index = function(req,res,next){
 	res.render("index",{
 		config:config,
-		title : "首页"
+		title : "首页",
+		loginInfo : req.session.userinfo,
+		albumData : []
 	});
 }
 /**
@@ -28,6 +31,7 @@ exports.register = function(req,res,next){
 	res.render("user/register",{
 		config:config,
 		title : "注册",
+		loginInfo : req.session.userinfo,
 		tip : {
 			error : "",
 			info : ""
@@ -38,6 +42,7 @@ exports.register = function(req,res,next){
 exports.err404 = function(req,res,next){
 	res.render("404",{
 		config:config,
+		loginInfo : req.session.userinfo,
 		title : "首页"
 	});
 }
