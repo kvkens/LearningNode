@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title><%=title %></title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -33,11 +34,10 @@
           	<%=config.title %>
           </a>
         </div>
-        <% if(loginInfo != undefined){ %>
+        <% if(loginInfo){ %>
           <div class="navbar-collapse collapse">
                 <a href="/Logout" class="btn btn-danger navbar-btn navbar-right">注销</a>
-                <p class="navbar-text navbar-right">欢迎您：<%=loginInfo.username%> ！</p>
-                
+                <p class="navbar-text navbar-right ">欢迎您：<span class="label label-info"><%=loginInfo.username%></span>&nbsp;您可以进入<strong><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><a class="navbar-link" href="#">用户中心</a></strong>!&nbsp;<strong><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><a class="navbar-link" href="#">短消息<span class="badge">0</span></a><strong>&nbsp;</p>
           </div>
         <% }else{ %>
           <div class="navbar-collapse collapse">

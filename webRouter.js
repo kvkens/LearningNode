@@ -5,8 +5,8 @@
  */
 var express = require("express");
 var router = express.Router();
-var home = require("./controller/homeController");
-var user = require("./controller/userController");
+var home = require("./controller/homeController");//首页控制器
+var user = require("./controller/userController");//用户操作控制器
 
 
 router.get("/",home.index);//首页
