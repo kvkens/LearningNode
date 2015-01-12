@@ -37,7 +37,7 @@
         <% if(loginInfo){ %>
           <div class="navbar-collapse collapse">
                 <a href="/Logout" class="btn btn-danger navbar-btn navbar-right">注销</a>
-                <p class="navbar-text navbar-right ">欢迎您：<span class="label label-info"><%=loginInfo.username%></span>&nbsp;您可以进入<strong><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><a class="navbar-link" href="#">用户中心</a></strong>!&nbsp;<strong><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><a class="navbar-link" href="#">短消息<span class="badge">0</span></a><strong>&nbsp;</p>
+                <p class="navbar-text navbar-right ">欢迎您：<span class="label label-info"><%=loginInfo.username%></span>&nbsp;您可以进入<strong><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><a class="navbar-link" href="UserCenter">用户中心</a></strong>!&nbsp;<strong><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><a class="navbar-link" href="#">短消息<span class="badge">0</span></a><strong>&nbsp;</p>
           </div>
         <% }else{ %>
           <div class="navbar-collapse collapse">
@@ -56,7 +56,7 @@
         <% } %>
       </div>
     </nav>
-<div class="well well-sm"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>公告：当前暂无公告!</div>
+<div class="well well-sm"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>公告：<%=config.notice%></div>
 <script type="text/javascript">
   $(function(){
     $("#btnLogin").on("click",function(event){

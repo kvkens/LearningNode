@@ -1,0 +1,34 @@
+<%- include ../public/header %>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>&nbsp;我的用户中心</div>
+  <div class="panel-body">
+    	<div class="row">
+		  	<div class="col-md-3">
+		  		<div class="row">
+				  <div class="col-md-10">
+				    <div class="thumbnail">
+				      <img src="images/normal.jpg" alt="avatar">
+				      <div class="caption text-center">
+				        <h3><%=loginInfo.username%></h3>
+				        <p>
+				        	加入时间：<%=moment(loginInfo.createtime).format('YYYY年MM月DD日')%>
+				        </p>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+		  	</div>
+			<div class="col-md-6">
+				
+			</div>
+			<div class="col-md-3">
+				
+			</div>
+		</div>
+  </div>
+</div>
+
+
+
+<%- include ../public/footer %>
