@@ -37,7 +37,7 @@
         <% if(loginInfo){ %>
           <div class="navbar-collapse collapse">
                 <a href="/Logout" class="btn btn-danger navbar-btn navbar-right">注销</a>
-                <p class="navbar-text navbar-right ">欢迎您：<span class="label label-info"><%=loginInfo.username%></span>&nbsp;您可以进入<strong><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><a class="navbar-link" href="UserCenter">用户中心</a></strong>!&nbsp;<strong><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><a class="navbar-link" href="#">短消息<span class="badge">0</span></a><strong>&nbsp;</p>
+                <p class="navbar-text navbar-right ">欢迎您：<span class="label label-info"><%=loginInfo.username%></span>&nbsp;您可以进入<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><a class="navbar-link" href="UserCenter">用户中心</a>&nbsp;<span class="glyphicon glyphicon-comment" aria-hidden="true"></span><a class="navbar-link" href="#">短消息<span class="badge">0</span></a>&nbsp;</p>
           </div>
         <% }else{ %>
           <div class="navbar-collapse collapse">
