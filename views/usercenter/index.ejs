@@ -6,9 +6,9 @@
     	<div class="row">
 		  	<div class="col-md-3">
 		  		<div class="row">
-				  <div class="col-md-10">
+				  <div class="col-md-12">
 				    <div class="thumbnail">
-				      <img src="images/normal.jpg" alt="avatar">
+				      <img src="images/normal.jpg" alt="avatar" class="img-thumbnail">
 				      <div class="caption text-center">
 				        <h3><%=loginInfo.username%></h3>
 				        <p>
@@ -20,10 +20,69 @@
 				</div>
 		  	</div>
 			<div class="col-md-6">
-				
+				<div class="panel panel-info">
+				  <div class="panel-heading"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>&nbsp;我上传过的专辑</div>
+				  	<table class="table table-striped table-hover table-bordered">
+				  		<thead>
+					  	<tr>
+					  		<td><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>专辑名</td>
+					  		<td><span class="glyphicon glyphicon-user" aria-hidden="true"></span>音乐家</td>
+					  		<td><span class="glyphicon glyphicon-time" aria-hidden="true"></span>上传时间</td>
+					  		<td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>审核状态</td>
+					  	</tr>
+						</thead>
+						<tr>
+						  	<td>七里香</td>
+						  	<td>周杰伦</td>
+						  	<td>2015-01-01 11:11:11</td>
+						  	<td>审核中</td>
+						</tr>
+						<tr>
+						  	<td>哎哟不错哦</td>
+						  	<td>周杰伦</td>
+						  	<td>2015-01-13 09:00:00</td>
+						  	<td>审核中</td>
+						</tr>
+						<tr>
+						  	<td>八度空间</td>
+						  	<td>周杰伦</td>
+						  	<td>2014-12-12 15:31:45</td>
+						  	<td>审核中</td>
+						</tr>
+					</table>
+					
+				</div>
+				<nav class="text-center">
+				 <ul class="pagination">
+			        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+			        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+			        <li><a href="#">2</a></li>
+			        <li><a href="#">3</a></li>
+			        <li><a href="#">4</a></li>
+			        <li><a href="#">5</a></li>
+			        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+			     </ul>
+			     </nav>
 			</div>
 			<div class="col-md-3">
-				
+				<div class="panel panel-info">
+				  <div class="panel-heading"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;功能操作区</div>
+				  
+				  <table class="table table-striped table-hover table-bordered">
+					  <thead>
+					  <tr>
+					  	<td>
+					  		在这里您可以查看您所属的会员权利
+					  	</td>
+					  </tr>
+					</thead>
+					<tr>
+					  	<td>
+					  		<a href="#" class="btn btn-info">上传我的专辑</a>
+					  	</td>
+					 </tr>
+					</table>
+				</div>
 			</div>
 		</div>
   </div>
