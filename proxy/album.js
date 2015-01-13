@@ -31,7 +31,7 @@ exports.addAlbum = function(album,cb){
  * @return {[type]} [description]
  */
 exports.getAlbum = function(cb){
-	Album.find({},function(err,albums){
+	Album.find({}).sort("-createtime").exec(function(err,albums){
 		if(err){
 
 		}else{
