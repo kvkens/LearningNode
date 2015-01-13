@@ -15,7 +15,8 @@ exports.addUser = function(username,password,cb){
       		password = md5.update(password).digest('hex');
 			var user = new User({
 				username : username,
-				password : password
+				password : password,
+				createtime : Date.now()
 			});
 			user.save(function(err,entity){
 				cb(null,true);
