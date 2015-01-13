@@ -33,11 +33,11 @@
 					  	</tr>
 						</thead>
 						<% for(var i =0;i < albums.length;i++){ %>
-							<tr> 
+							<tr>
 							  	<td><%=albums[i].albumname%></td>
 							  	<td><%=albums[i].musican%></td>
 							  	<td><%=moment(albums[i].createtime).format('YYYY-MM-DD HH:mm:ss')%></td>
-							  	<td><%=albums[i].ischeck?'审核通过':'审核中'%></td>
+							  	<td><%-albums[i].ischeck?'<font color="#11EE69">审核通过</font>':'<font color="#EE6666">审核中</font>'%></td>
 							</tr>
 						<%}%>
 					</table>
