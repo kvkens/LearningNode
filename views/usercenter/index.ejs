@@ -11,8 +11,9 @@
 				      <img src="images/normal.jpg" alt="avatar" class="img-thumbnail">
 				      <div class="caption text-center">
 				        <h3><%=loginInfo.username%></h3>
+				        <p>积分：<%=loginInfo.points%></p>
 				        <p>
-				        	加入时间：<%=moment(loginInfo.createtime).format('YYYY年MM月DD日')%>
+				        	加入时间：<%=moment(loginInfo.createtime).format('YYYY年MM月DD日 HH点mm分')%>
 				        </p>
 				      </div>
 				    </div>
@@ -31,24 +32,14 @@
 					  		<td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>审核状态</td>
 					  	</tr>
 						</thead>
-						<tr>
-						  	<td>七里香</td>
-						  	<td>周杰伦</td>
-						  	<td>2015-01-01 11:11:11</td>
-						  	<td>审核中</td>
-						</tr>
-						<tr>
-						  	<td>哎哟不错哦</td>
-						  	<td>周杰伦</td>
-						  	<td>2015-01-13 09:00:00</td>
-						  	<td>审核中</td>
-						</tr>
-						<tr>
-						  	<td>八度空间</td>
-						  	<td>周杰伦</td>
-						  	<td>2014-12-12 15:31:45</td>
-						  	<td>审核中</td>
-						</tr>
+						<% for(var i =0;i < albums.length;i++){ %>
+							<tr> 
+							  	<td><%=albums[i].albumname%></td>
+							  	<td><%=albums[i].musican%></td>
+							  	<td><%=moment(albums[i].createtime).format('YYYY-MM-DD HH:mm:ss')%></td>
+							  	<td><%=albums[i].ischeck?'审核通过':'审核中'%></td>
+							</tr>
+						<%}%>
 					</table>
 					
 				</div>
@@ -78,7 +69,7 @@
 					</thead>
 					<tr>
 					  	<td>
-					  		<a href="#" class="btn btn-info">上传我的专辑</a>
+					  		<a href="#" class="btn btn-info" data-toggle="modal" data-target="#uploadMyAlbum">上传我的专辑</a>
 					  	</td>
 					 </tr>
 					</table>
@@ -88,6 +79,58 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="uploadMyAlbum" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">上传我的专辑</h4>
+      </div>
+      <div class="modal-body">
+      		<form id="albumUploadForm" class="form-horizontal" action="/UserCenter/AlbumAdd" method="POST">
+	          <div class="form-group">
+	            <label for="albumName" class="col-sm-3 control-label">专辑名称：</label>
+	            <div class="col-sm-7">
+	            	<input type="text" name="album[albumname]" class="form-control" id="albumName" placeholder="专辑的名称" />
+	        	</div>
+	          </div>
+	          <div class="form-group">
+	            <label for="albumMusican" class="col-sm-3 control-label">音乐家：</label>
+	            <div class="col-sm-7">
+	            	<input type="text" name="album[musican]" class="form-control" id="albumMusican" placeholder="音乐家的名字" />
+				</div>
+	          </div>
+	          <div class="form-group">
+			    <label for="albumPic" class="col-sm-3 control-label">专辑封面：</label>
+			    <div class="col-sm-7">
+			      <input type="text" name="album[pic]" class="form-control" id="albumPic" placeholder="输入封面地址 如http://">
+			    </div>
+			  </div>
+	        </form>
 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button id="btnAlbumUpload" type="button" class="btn btn-primary">发布</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$("#btnAlbumUpload").on("click",function(event){
+			if($("#albumName").val()==""){
+				alert("专辑名不能为空");
+				return;
+			}
+			if($("#albumMusican").val()==""){
+				alert("音乐家不能为空");
+				return;
+			}
 
+			$("#albumUploadForm").submit();
+		});
+	});
+</script>
 <%- include ../public/footer %>

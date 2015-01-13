@@ -7,6 +7,10 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
 	username : String,
 	password : String,
+	points : {
+		type : Number,
+		default : 0
+	},
 	createtime : {
 		type : Date,
 		default: Date.now()

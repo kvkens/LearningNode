@@ -1,3 +1,7 @@
+/**
+ * 用户功能实现
+ * @type {[type]}
+ */
 var User = require("../model/User");
 var crypto = require('crypto');
 

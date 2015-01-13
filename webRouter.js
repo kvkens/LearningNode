@@ -17,7 +17,9 @@ router.get("/RegisterSuccess",user.success);//注册成功页面
 router.post("/Register",user.register);//注册逻辑
 router.post("/Login",user.login);//注册页面
 router.get("/Logout",user.logout);//注销
-router.get("/UserCenter",safeCheck);
-router.get("/UserCenter",usercenter.index);
+router.get("/UserCenter",safeCheck);//用户中心安全检测
+router.get("/UserCenter",usercenter.index);//用户中心首页
+router.post("/UserCenter/AlbumAdd",safeCheck);//检测上传专辑安全
+router.post("/UserCenter/AlbumAdd",usercenter.addalbum);//我的专辑上传
 router.get("*",home.err404);//404
 module.exports = router;
