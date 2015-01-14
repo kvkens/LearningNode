@@ -26,10 +26,11 @@
 				  	<table class="table table-striped table-hover table-bordered">
 				  		<thead>
 					  	<tr>
-					  		<td><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>专辑名</td>
-					  		<td><span class="glyphicon glyphicon-user" aria-hidden="true"></span>音乐家</td>
-					  		<td><span class="glyphicon glyphicon-time" aria-hidden="true"></span>上传时间</td>
-					  		<td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>审核状态</td>
+					  		<td><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>&nbsp;专辑名</td>
+					  		<td><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;音乐家</td>
+					  		<td><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;上传时间</td>
+					  		<td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;审核状态</td>
+					  		<td><span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;添加曲目</td>
 					  	</tr>
 						</thead>
 						<% for(var i =0;i < albums.length;i++){ %>
@@ -38,6 +39,7 @@
 							  	<td><%=albums[i].musican%></td>
 							  	<td><%=moment(albums[i].createtime).format('YYYY-MM-DD HH:mm:ss')%></td>
 							  	<td><%-albums[i].ischeck?'<font color="#11EE69">审核通过</font>':'<font color="#EE6666">审核中</font>'%></td>
+							  	<td>当前<%=albums[i].song.length%>首 <a href="/SongAdd/<%=albums[i]._id%>" >追加</a></td>
 							</tr>
 						<%}%>
 					</table>
@@ -58,7 +60,6 @@
 			<div class="col-md-3">
 				<div class="panel panel-info">
 				  <div class="panel-heading"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;功能操作区</div>
-				  
 				  <table class="table table-striped table-hover table-bordered">
 					  <thead>
 					  <tr>

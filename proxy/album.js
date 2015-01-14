@@ -9,13 +9,14 @@ var Album = require("../model/Album");
  * @param {[type]}   album [description]
  * @param {Function} cb    [description]
  */
-exports.addAlbum = function(album,cb){
+exports.addAlbum = function(album,uploader,cb){
 	console.log(album);
 	var album = new Album({
 		albumname : album.albumname,
 		musican : album.musican,
 		pic : album.pic,
-		createtime : new Date()
+		uploader : uploader,
+		createtime : Date.now()
 	});
 	album.save(function(err,_album){
 		if(err){
@@ -30,12 +31,22 @@ exports.addAlbum = function(album,cb){
  * 获取我的专辑
  * @return {[type]} [description]
  */
-exports.getAlbum = function(cb){
-	Album.find({}).sort("-createtime").exec(function(err,albums){
+exports.getAlbum = function(username,cb){
+	Album.find({uploader:username}).sort("-createtime").exec(function(err,albums){
 		if(err){
 
 		}else{
 			cb(albums);
 		}
 	});
+}
+
+/**
+ * 获取专辑信息来自ID
+ * @param  {[type]}   id [description]
+ * @param  {Function} cb [description]
+ * @return {[type]}      [description]
+ */
+exports.getAlbumById = function(id,cb){
+	Album.findOne({_id:id}).exec(cb);
 }

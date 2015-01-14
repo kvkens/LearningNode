@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title><%=title %></title>
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=config.site%>/bootstrap/css/bootstrap.min.css" />
 <!-- Optional theme -->
-<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="<%=config.site%>/bootstrap/css/bootstrap-theme.min.css" />
 <style>
 	body {
 		margin-top:55px;
 		margin-bottom:50px;
-    padding:0px 20px 0px 20px;
+    padding:0px 50px 0px;
 	}
 </style>
 <!-- Latest compiled and minified JavaScript -->
-<script src="../bootstrap/js/jquery.min.js"></script>
-<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="<%=config.site%>/bootstrap/js/jquery.min.js"></script>
+<script src="<%=config.site%>/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -37,7 +37,7 @@
         <% if(loginInfo){ %>
           <div class="navbar-collapse collapse">
                 <a href="/Logout" class="btn btn-danger navbar-btn navbar-right">注销</a>
-                <p class="navbar-text navbar-right ">欢迎您：<span class="label label-info"><%=loginInfo.username%></span>&nbsp;您可以进入<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><a class="navbar-link" href="UserCenter">用户中心</a>&nbsp;<span class="glyphicon glyphicon-comment" aria-hidden="true"></span><a class="navbar-link" href="#">短消息<span class="badge">0</span></a>&nbsp;</p>
+                <p class="navbar-text navbar-right ">欢迎您：<span class="label label-info"><%=loginInfo.username%></span>&nbsp;您可以进入<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><a class="navbar-link" href="../UserCenter">用户中心</a>&nbsp;<span class="glyphicon glyphicon-comment" aria-hidden="true"></span><a class="navbar-link" href="#">短消息<span class="badge">0</span></a>&nbsp;</p>
           </div>
         <% }else{ %>
           <div class="navbar-collapse collapse">
@@ -56,7 +56,8 @@
         <% } %>
       </div>
     </nav>
-<div class="well well-sm"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>公告：<%=config.notice%></div>
+<!-- <div class="well well-sm"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>公告：<%=config.notice%></div> -->
+<% if(!loginInfo){ %>
 <script type="text/javascript">
   $(function(){
     $("#btnLogin").on("click",function(event){
@@ -74,3 +75,4 @@
     });
   });
 </script>
+<%}%>

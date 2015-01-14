@@ -1,0 +1,63 @@
+<%- include ../public/header %>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;最新专辑</div>
+  <div class="panel-body">
+  		<div class="row">
+  			<form id="songAddForm" class="form-horizontal" action="/SongUpload" method="POST">
+				<div class="form-group">
+					<div class="col-sm-10">
+						<div id="songErrInfo" class="alert col-sm-4 col-sm-offset-5 alert-danger" style="display:none" role="alert">...</div>
+					</div>
+				</div>
+			  <div class="form-group">
+	            <label class="col-sm-3 control-label">专辑名称：</label>
+	            <div class="col-sm-7">
+	            	<p class="form-control-static"><%=album.albumname%></p>
+	        	</div>
+	          </div>
+  			  <div class="form-group">
+	            <label class="col-sm-3 control-label">歌曲序号：</label>
+	            <div class="col-sm-7">
+	            	<p class="form-control-static"><%=album.song.length + 1%></p>
+	        	</div>
+	          </div>
+	          
+	          <div class="form-group">
+	            <label for="songName" class="col-sm-3 control-label">音乐名称：</label>
+	            <div class="col-sm-7">
+	            	<input type="text" name="song[songname]" class="form-control" id="songName" placeholder="歌曲名称" />
+				</div>
+	          </div>
+	          <div class="form-group">
+			    <label for="songUrl" class="col-sm-3 control-label">音乐地址：</label>
+			    <div class="col-sm-7">
+			      <input type="text" name="song[songurl]" class="form-control" id="songUrl" placeholder="输入音乐地址 如http://">
+			      <input type="hidden" value="<%=album._id%>" name="song[id]" />
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-3 col-sm-10">
+			      <button id="btnSongAdd" type="button" class="btn btn-info">添加到专辑</button>
+			    </div>
+			  </div>
+	        </form>
+  		</div>
+  </div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$("#btnSongAdd").on("click",function(event){
+			if($("#songName").val()==""){
+				$("#songErrInfo").text("歌曲名称不能为空！").fadeIn("slow");
+				return;
+			}
+			if($("#songUrl").val()==""){
+				$("#songErrInfo").text("歌曲地址不能为空！").fadeIn("slow");
+				return;
+			}
+			$("#songAddForm").submit();
+		});
+	});
+</script>
+<%- include ../public/footer %>

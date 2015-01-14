@@ -21,5 +21,9 @@ router.get("/UserCenter",safeCheck);//用户中心安全检测
 router.get("/UserCenter",usercenter.index);//用户中心首页
 router.post("/UserCenter/AlbumAdd",safeCheck);//检测上传专辑安全
 router.post("/UserCenter/AlbumAdd",usercenter.addalbum);//我的专辑上传
+router.get("/SongAdd/:id",safeCheck);//检测上传歌曲安全
+router.get("/SongAdd/:id",usercenter.addsong);//我的歌曲上传页面
+router.post("/SongUpload",safeCheck);//检测添加歌曲安全
+router.post("/SongUpload",usercenter.songupload);//我的歌曲上传页面
 router.get("*",home.err404);//404
 module.exports = router;
