@@ -13,11 +13,13 @@ var home = require("../proxy/home");
  * @return {[type]}       [description]
  */
 exports.index = function(req,res,next){
-	res.render("index",{
-		config:config,
-		title : "首页",
-		loginInfo : req.session.userinfo,
-		albumData : []
+	home.getIndexAlbums(function(albums){
+		res.render("index",{
+			config:config,
+			title : "首页",
+			albums : albums,
+			loginInfo : req.session.userinfo
+		});
 	});
 }
 /**
