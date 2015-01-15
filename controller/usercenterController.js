@@ -3,7 +3,8 @@
  */
 var config = require("../config");
 var moment = require("moment");
-var Album = require("../proxy/album");//用户中心对象
+var Album = require("../proxy/album");//专辑对象
+var User = require("../proxy/user");//用户对象
 /**
  * 用户中心首页
  * @param  {[type]}   req  [description]
@@ -31,9 +32,12 @@ exports.index = function(req,res,next){
  * @return {[type]}        [description]
  */
 exports.addalbum = function(req,res,next){
+	var username = req.session.userinfo.username;
 	Album.addAlbum(req.body.album,req.session.userinfo.username,function(err,success){
 		if(success){
-			res.redirect("/UserCenter");
+			User.addPointByName(username,1,function(err){
+				res.redirect("/UserCenter");
+			});
 		}else{
 			res.redirect("/UserCenter");
 		}
