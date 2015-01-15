@@ -1,7 +1,8 @@
-# 学习node.js的一些实例整和
+# 学习node.js的一些实例整合
 
-## 为了自己学习node.js写的一个简单的音乐分享网站
+### 为了自己学习node.js写的一个简单的音乐分享网站
 > 用到的中间件有以下内容：
+
 - 前端：`Bootstrap`、`jQuery`
 - 后端：`Express`、`express-session`、`mongoose`、`body-parser`、`moment`
 - 加密类：`crypto`
