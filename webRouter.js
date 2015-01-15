@@ -9,6 +9,7 @@ var safeCheck = require("./safeCheck");
 var home = require("./controller/homeController");//首页控制器
 var user = require("./controller/userController");//用户操作控制器
 var usercenter = require("./controller/usercenterController");//用户中心控制器
+var album = require("./controller/albumController");//专辑控制器
 
 
 router.get("/",home.index);//首页
@@ -25,5 +26,6 @@ router.get("/SongAdd/:id",safeCheck);//检测上传歌曲安全
 router.get("/SongAdd/:id",usercenter.addsong);//我的歌曲上传页面
 router.post("/SongUpload",safeCheck);//检测添加歌曲安全
 router.post("/SongUpload",usercenter.songupload);//我的歌曲上传页面
+router.get("/AlbumMusic/:id",album.indexalbum);//首页查看专辑页面
 router.get("*",home.err404);//404
 module.exports = router;

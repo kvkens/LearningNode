@@ -1,0 +1,39 @@
+<%- include ../public/header %>
+
+
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="thumbnail">
+          <img src="<%=album.pic%>" alt="<%=album.albumname%>" title="<%=album.albumname%>" class="img-thumbnail">
+          <div class="caption text-center">
+            <h3><%=album.albumname%></h3>
+            <p><%=album.musican%></p>
+            <!-- <p><a href="#" class="btn btn-primary" role="button">+1</a> <a href="#" class="btn btn-default" role="button">-1</a></p> -->
+          </div>
+          <table class="table table-hover table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>曲目</th>
+                <th>歌曲</th>
+                <th>歌手</th>
+              </tr>
+            </thead>
+            <% for(var i = 0;i < album.song.length;i++){ %>
+            <tr>
+              <td><%=i+1%></td>
+              <td><%=album.song[i].songname%></td>
+              <td><%=album.musican%></td>
+            </tr>
+            <% } %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<%- include ../public/footer %>

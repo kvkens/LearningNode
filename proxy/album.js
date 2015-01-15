@@ -10,7 +10,6 @@ var Album = require("../model/Album");
  * @param {Function} cb    [description]
  */
 exports.addAlbum = function(album,uploader,cb){
-	console.log(album);
 	var album = new Album({
 		albumname : album.albumname,
 		musican : album.musican,
