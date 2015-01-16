@@ -56,7 +56,7 @@ exports.addsong = function(req,res,next){
 	var albumid = req.params.id;
 	Album.getAlbumById(albumid,function(err,album){
 		if(album){
-			res.render("usercenter/songadd",{
+			res.render("usercenter/songAdd",{
 				config : config,
 				loginInfo : req.session.userinfo,
 				album : album,
