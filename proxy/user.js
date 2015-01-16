@@ -60,12 +60,23 @@ exports.loginByNamePwd = function(username,password,cb){
  * @param {Function} cb       [description]
  */
 exports.addPointByName = function(username,point,cb){
-	User.findOne({username : username},function(err,user){
-		if(user){
-			user.points = user.points + point;
-			user.save(cb);
-		}else{
-			cb("add point err!");
-		}
-	});
+	// User.findOne({username : username},function(err,user){
+	// 	if(user){
+	// 		user.points = user.points + point;
+	// 		user.save(cb);
+	// 	}else{
+	// 		cb("add point err!");
+	// 	}
+	// });
+	
+	//使用修改器重写
+	User.update({username : username},{"$inc" : { points : point }},cb);
+}
+
+/**
+ * 获取前10名积分排行
+ * @return {[type]} [description]
+ */
+exports.getTop10 = function(){
+	User.find({});
 }
