@@ -10,4 +10,4 @@
 - 后端模板：`ejs`
 - 数据库：`MongoDB`
 
-> linux develop
+> ``linux develop``
