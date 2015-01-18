@@ -16,7 +16,7 @@ exports.index = function(req,res,next){
 	home.getIndexAlbums(function(albums){
 		res.render("index",{
 			config:config,
-			title : "首页",
+			title : config.title +" - 首页",
 			albums : albums,
 			loginInfo : req.session.userinfo
 		});

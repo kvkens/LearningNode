@@ -13,12 +13,17 @@ var User = require("../proxy/user");//用户对象
  * @return {[type]}        [description]
  */
 exports.index = function(req,res,next){
-	Album.getAlbum(req.session.userinfo.username,function(albums){
+	var p = isNaN(req.query.p)?"1":req.query.p;
+	var pshow = 10;
+	Album.getAlbum(req.session.userinfo.username,p,pshow,function(albums,count){
 		res.render("usercenter/index",{
 			config : config,
 			loginInfo : req.session.userinfo,
 			moment : moment,
 			albums : albums,
+			p : p,
+			pcount : count,
+			pshow : pshow,
 			title : "用户个人中心"
 		});
 	});

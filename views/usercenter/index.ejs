@@ -35,7 +35,7 @@
 						</thead>
 						<% for(var i =0;i < albums.length;i++){ %>
 							<tr>
-							  	<td><%=albums[i].albumname%></td>
+							  	<td title="<%=albums[i].albumname%>"><%=albums[i].albumname.length>7?albums[i].albumname.substr(0,7)+'..':albums[i].albumname%></td>
 							  	<td><%=albums[i].musican%></td>
 							  	<td><%=moment(albums[i].createtime).format('YYYY-MM-DD HH:mm:ss')%></td>
 							  	<td><%-albums[i].ischeck?'<font color="#11EE69">审核通过</font>':'<font color="#EE6666">审核中</font>'%></td>
@@ -46,16 +46,14 @@
 					
 				</div>
 				<nav class="text-center">
-				 <ul class="pagination">
-			        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-			        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-			        <li><a href="#">2</a></li>
-			        <li><a href="#">3</a></li>
-			        <li><a href="#">4</a></li>
-			        <li><a href="#">5</a></li>
-			        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-			     </ul>
-			     </nav>
+				 	<ul class="pagination">
+					        <li <%-p==1?'class="disabled"':''%>><a href="?p=<%-p==1?p:p-1%>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+					        <% for(var i = 0 ; i < Math.ceil(pcount/pshow);i++){ %>
+					        	<li <%-(i+1)==p?'class="active"':''%> ><a href="?p=<%=i+1%>"><%=i+1%></a></li>
+					        <% } %>
+					        <li <%-p==Math.ceil(pcount/pshow)?'class="disabled"':''%>><a href="?p=<%=p<Math.ceil(pcount/pshow)?(Number(p)+1):p%>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+					 </ul>
+				 </nav>
 			</div>
 			<div class="col-md-3">
 				<div class="panel panel-info">

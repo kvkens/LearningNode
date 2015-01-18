@@ -30,14 +30,17 @@ exports.addAlbum = function(album,uploader,cb){
  * 获取我的专辑
  * @return {[type]} [description]
  */
-exports.getAlbum = function(username,cb){
+exports.getAlbum = function(username,page,show,cb){
 	//TO DO : user center paging
 	// db.albums.find({},{_id:0,__v:0,password:0,pic:0,ischeck:0,uploader:0,song:0}).sort({"createtime":-1}).skip(0).limit(5);//current 1 show 5
-	Album.find({uploader:username}).sort("-createtime").exec(function(err,albums){
+	Album.find({uploader:username}).sort("-createtime").skip((page-1)*show).limit(show).exec(function(err,albums){
 		if(err){
 
 		}else{
-			cb(albums);
+			Album.find({}).exec(function(err,c){
+				cb(albums,c.length);
+			});
+			
 		}
 	});
 }
