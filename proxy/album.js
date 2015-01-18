@@ -32,6 +32,7 @@ exports.addAlbum = function(album,uploader,cb){
  */
 exports.getAlbum = function(username,cb){
 	//TO DO : user center paging
+	// db.albums.find({},{_id:0,__v:0,password:0,pic:0,ischeck:0,uploader:0,song:0}).sort({"createtime":-1}).skip(0).limit(5);//current 1 show 5
 	Album.find({uploader:username}).sort("-createtime").exec(function(err,albums){
 		if(err){
 
