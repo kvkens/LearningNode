@@ -29,6 +29,6 @@ app.use(session({//session持久化配置
 app.use("/",webRouter);//启用页面路由
 app.set("view engine","ejs");//模板引擎ejs
 
-var server = app.listen(process.env.PORT || 80,function(){
+var server = app.listen(process.env.PORT || 3000,function(){
 	console.log("启动成功访问：http://%s:%s",server.address().address,server.address().port);//服务启动
 });
