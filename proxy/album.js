@@ -31,6 +31,7 @@ exports.addAlbum = function(album,uploader,cb){
  * @return {[type]} [description]
  */
 exports.getAlbum = function(username,cb){
+	//TO DO : user center paging
 	Album.find({uploader:username}).sort("-createtime").exec(function(err,albums){
 		if(err){
 
