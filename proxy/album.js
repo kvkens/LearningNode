@@ -37,7 +37,7 @@ exports.getAlbum = function(username,page,show,cb){
 		if(err){
 
 		}else{
-			Album.find({}).exec(function(err,c){
+			Album.find({uploader:username}).exec(function(err,c){
 				cb(albums,c.length);
 			});
 			
