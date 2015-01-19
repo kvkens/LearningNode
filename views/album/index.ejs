@@ -23,7 +23,7 @@
             <% for(var i = 0;i < album.song.length;i++){ %>
             <tr>
               <td><%=i+1%></td>
-              <td><%=album.song[i].songname%></td>
+              <td><a target="_blank" href="../ListenMusic/<%=album.song[i]._id%>"><%=album.song[i].songname%></a></td>
               <td><%=album.musican%></td>
             </tr>
             <% } %>

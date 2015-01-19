@@ -27,5 +27,6 @@ router.get("/SongAdd/:id",usercenter.addsong);//我的歌曲上传页面
 router.post("/SongUpload",safeCheck);//检测添加歌曲安全
 router.post("/SongUpload",usercenter.songupload);//我的歌曲上传页面
 router.get("/AlbumMusic/:id",album.indexalbum);//首页查看专辑页面
+router.get("/ListenMusic/:id",album.listen);//音乐播放页面
 router.get("*",home.err404);//404
 module.exports = router;
