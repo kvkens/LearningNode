@@ -1,0 +1,25 @@
+<%- include public/header %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-primary">
+		      <div class="panel-heading">
+		        <h3 class="panel-title">上传测试</h3>
+		      </div>
+		      <div class="panel-body">
+		        	<form action="./upload" method="POST" enctype="multipart/form-data">
+					  <div class="form-group">
+					    <label for="exampleInputFile">上传文件</label>
+					    <input type="file" id="exampleInputFile" name="upfile">
+					    <p class="help-block">在这里上传你的文件到服务器！</p>
+					  </div>
+					  <button type="submit" class="btn btn-info">上传</button>
+					</form>
+		      </div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<%- include public/footer %>
