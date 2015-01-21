@@ -53,49 +53,6 @@ exports.listen = function(req,res,next){
  * @return {[type]} [description]
  */
 exports.upload = function(req,res,next){
-	var upfile = req.files.upfile;
-    var files = [];
-    if (upfile instanceof  Array) {
-        files = upfile;
-    } else {
-        files.push(upfile);
-    }
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        var path = file.path;
-        var name = file.name;
-        var target_path = "./upload/" + name;
-        // fs.rename(path, target_path, function (err) {
-        //     if (err) throw err;
-        // });
-        fs.readFile(path, function(err, data){
-		    fs.writeFile(target_path, data, function(err){
-		        if(err)console.log(err);
-		        fs.rmdir(path,function(err){
-		        	if(err)console.log(err);
-		        	res.render("upload",{
-						config : config,
-						loginInfo : req.session.userinfo,
-						title : "上传成功"
-					});
-		        });
-		    });
-		});
-
-    }
-    console.log(path);
-    //todo delete path
-
-}
-
-/**
- * 上传处理2
- * @param  {[type]}   req  [description]
- * @param  {[type]}   res  [description]
- * @param  {Function} next [description]
- * @return {[type]}        [description]
- */
-exports.upload2 = function(req,res,next){
 	res.render("upload",{
 		config : config,
 		body : req.body,
@@ -103,7 +60,10 @@ exports.upload2 = function(req,res,next){
 		loginInfo : req.session.userinfo,
 		title : "上传成功"
 	});
+
 }
+
+
 
 /**
  * 测试方法

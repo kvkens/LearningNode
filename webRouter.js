@@ -4,8 +4,6 @@
  * @return {[type]}     [description]
  */
 var express = require("express");
-var multipart = require("connect-multiparty");//上传中间件
-var multipartMiddleware = multipart();//获取对象
 var router = express.Router();
 var safeCheck = require("./safeCheck");
 var home = require("./controller/homeController");//首页控制器
@@ -31,8 +29,7 @@ router.post("/SongUpload",usercenter.songupload);//我的歌曲上传页面
 router.get("/AlbumMusic/:id",album.indexalbum);//首页查看专辑页面
 router.get("/ListenMusic/:id",album.listen);//音乐播放页面
 router.get("/test",album.test);//添加测试页面
-router.post("/upload",multipartMiddleware,album.upload);//上传处理
-router.post("/upload2",album.upload2);//上传处理2
+router.post("/upload",album.upload);//上传处理2
 router.get("*",home.err404);//404
 
 module.exports = router;

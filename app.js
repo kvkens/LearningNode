@@ -15,14 +15,13 @@ var webRouter = require("./webRouter");//页面路由
 mongoose.connect('mongodb://localhost/my_database');//连接Mongodb
 app.use(express.static(path.join(__dirname, 'assets')));//目录静态化
 app.use(multer({
-	dest: './assets/images',
+	dest: './assets/albums',//上传图像位置
 	rename: function (fieldname, filename) {
 		return filename;
 	}
 }));
 app.use(bodyParser.urlencoded({
 		extended: true
-		//uploadDir:'./upload_tmp'
 		}));//表单解析控制
 app.use(session({//session持久化配置
 	secret: "kvkenssecret",
