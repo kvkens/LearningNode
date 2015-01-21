@@ -89,6 +89,23 @@ exports.upload = function(req,res,next){
 }
 
 /**
+ * 上传处理2
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ * @return {[type]}        [description]
+ */
+exports.upload2 = function(req,res,next){
+	res.render("upload",{
+		config : config,
+		body : req.body,
+		files : req.files,
+		loginInfo : req.session.userinfo,
+		title : "上传成功"
+	});
+}
+
+/**
  * 测试方法
  * @param  {[type]}   req  [description]
  * @param  {[type]}   res  [description]
