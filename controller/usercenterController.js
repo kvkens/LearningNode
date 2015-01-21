@@ -38,7 +38,7 @@ exports.index = function(req,res,next){
  */
 exports.addalbum = function(req,res,next){
 	var username = req.session.userinfo.username;
-	Album.addAlbum(req.body.album,req.session.userinfo.username,function(err,success){
+	Album.addAlbum(req.body.album,req.files.albumPic.name,req.session.userinfo.username,function(err,success){
 		if(success){
 			User.addPointByName(username,1,function(err){
 				res.redirect("/UserCenter");

@@ -9,11 +9,11 @@ var Album = require("../model/Album");
  * @param {[type]}   album [description]
  * @param {Function} cb    [description]
  */
-exports.addAlbum = function(album,uploader,cb){
+exports.addAlbum = function(album,picUrl,uploader,cb){
 	var album = new Album({
 		albumname : album.albumname,
 		musican : album.musican,
-		pic : album.pic,
+		pic : picUrl,
 		uploader : uploader,
 		createtime : Date.now()
 	});

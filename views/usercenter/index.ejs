@@ -87,7 +87,7 @@
         <h4 class="modal-title" id="myModalLabel">上传我的专辑</h4>
       </div>
       <div class="modal-body">
-      		<form id="albumUploadForm" class="form-horizontal" action="/UserCenter/AlbumAdd" method="POST">
+      		<form id="albumUploadForm" class="form-horizontal" enctype="multipart/form-data" action="/UserCenter/AlbumAdd" method="POST">
 	          <div class="form-group">
 	            <label for="albumName" class="col-sm-3 control-label">专辑名称：</label>
 	            <div class="col-sm-7">
@@ -101,9 +101,9 @@
 				</div>
 	          </div>
 	          <div class="form-group">
-			    <label for="albumPic" class="col-sm-3 control-label">专辑封面：</label>
+			    <label for="albumPic" class="col-sm-3 control-label">上传专辑封面：</label>
 			    <div class="col-sm-7">
-			      <input type="text" name="album[pic]" class="form-control" id="albumPic" placeholder="输入封面地址 如http://">
+			      <input type="file" name="albumPic" class="form-control" id="albumPic">
 			    </div>
 			  </div>
 	        </form>

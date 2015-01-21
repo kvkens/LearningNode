@@ -9,15 +9,17 @@ var session = require('express-session');//session
 var MongoStore = require('connect-mongo')(session);//session持久化
 var bodyParser = require('body-parser');//解析form表单实体
 var multer  = require('multer');//upload
+var moment = require("moment");
 var mongoose = require("mongoose");//mongoDB数据源连接
 var webRouter = require("./webRouter");//页面路由
+
 
 mongoose.connect('mongodb://localhost/my_database');//连接Mongodb
 app.use(express.static(path.join(__dirname, 'assets')));//目录静态化
 app.use(multer({
 	dest: './assets/albums',//上传图像位置
 	rename: function (fieldname, filename) {
-		return filename;
+		return moment(new Date()).format('YYYYMMDDHHmmss-')+filename;
 	}
 }));
 app.use(bodyParser.urlencoded({

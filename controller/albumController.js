@@ -1,9 +1,9 @@
 /**
  * 专辑控制器
  */
+
 var config = require("../config");
 var Album = require("../proxy/album");//专辑对象
-var fs = require("fs");
 
 /**
  * 详情专辑的页面
@@ -60,7 +60,6 @@ exports.upload = function(req,res,next){
 		loginInfo : req.session.userinfo,
 		title : "上传成功"
 	});
-
 }
 
 
