@@ -4,11 +4,11 @@
   "description": "leaning express",
   "main": "app.js",
   "dependencies": {
-    "body-parser": "^1.10.1",
+    "body-parser": "^1.10.2",
     "connect-mongo": "^0.5.3",
     "crypto": "0.0.3",
     "ejs": "^1.0.0",
-    "express": "^4.11.0",
+    "express": "^4.11.1",
     "express-session": "^1.10.1",
     "moment": "^2.9.0",
     "mongoose": "^3.9.7",
