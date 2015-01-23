@@ -2,7 +2,6 @@
 
 ### 为了自己学习node.js写的一个简单的音乐分享网站
 > 修改config.js里面的site为你的网站域名.
-
 > 用到的中间件有以下内容：
 
 - 前端：`Bootstrap`、`jQuery`
