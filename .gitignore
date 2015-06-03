@@ -29,3 +29,5 @@ node_modules
 upload
 assets/albums
 assets/images
+assets/bootstrap
+assets/jquery

@@ -1,8 +1,8 @@
 {
-  "name": "LeaningEjs",
-  "version": "0.0.0",
+  "name": "LeaningNode",
+  "version": "1.0.0",
   "authors": [
-    "Kvkens <yueming@qq.com>"
+    "Kvkens <kvkens@qq.com>"
   ],
   "license": "MIT",
   "ignore": [
@@ -14,6 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.3"
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.4"
   }
 }
