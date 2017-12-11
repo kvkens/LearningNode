@@ -7,7 +7,7 @@
     "body-parser": "^1.12.4",
     "connect-mongo": "^0.5.3",
     "crypto": "0.0.3",
-    "ejs": "^1.0.0",
+    "ejs": "^2.5.5",
     "express": "^4.12.4",
     "express-session": "^1.11.2",
     "moment": "^2.10.3",
